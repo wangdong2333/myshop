@@ -54,7 +54,10 @@
 
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import axios from 'axios'
+import axios from "axios"
+import url from "@/service.config.js";
+
+
 
 export default {
     data(){
@@ -191,70 +194,70 @@ export default {
         }
       ],
       varietyItem:[
-         {
-          name: "   不缠秧的花生果子收割机 手扶马铃薯收获机",
-          img:
-            "http://img48.nongjx.com/2/20180628/636657836692623289517_198_170_5.jpg",
-          price: "2800",
-          company: "  曲阜市润众机械制造有限",
-          city: "曲阜市"
-        },
-        {
-          name: "   自走式大型花生去秧机 花生除秧自动装袋机",
-          img:
-            "http://img48.nongjx.com/2/20180715/636672620827383254579_198_170_5.jpg",
-          price: "2582",
-          company: "  曲阜金源机械设备有限公",
-          city: "济宁市"
-        },
-        {
-          name: "   高效省人工花生摘果机 全新多功能去秧机",
-          img:
-            "http://img48.nongjx.com/2/20180715/636672620827383254579_198_170_5.jpg",
-          price: "2581",
-          company: "  曲阜金源机械设备有限公",
-          city: "济宁市"
-        },
-        {
-          name: "   河北邢台花生摘果机 自动装袋脱果机图片",
-          img:
-            "http://img48.nongjx.com/2/20180715/636672620803202789496_198_170_5.jpg",
-          price: "2580",
-          company: "  曲阜金源机械设备有限公",
-          city: "济宁市"
-        },
-        {
-          name: "   大型花生收获机规格 链条式方便花生挖果机",
-          img:
-            "http://img47.nongjx.com/2/20180926/636735768787313154613_198_170_5.jpg",
-          price: "3260",
-          company: "  曲阜浩发机械有限公司",
-          city: "济宁市"
-        },
-        {
-          name: "   家用节能花生摘果机 自动装袋花生分离机",
-          img:
-            "http://img50.nongjx.com/2/20180926/636735749293114513986_198_170_5.jpg",
-          price: "3460",
-          company: "  曲阜浩发机械有限公司",
-          city: "济宁市"
-        },
-        {
-          name: "   高港区手扶车带动土豆收获机收山芋机器",
-          img:
-            "http://img49.nongjx.com/2/20180511/636616318740584319169_198_170_5.jpg",
-          price: "1900",
-          company: "  山东曲阜宏燊工贸有限公",
-          city: "曲阜市"
-        },
-        {
-          name: "   拖拉机带多功能割晒机 玉米高粱杆子收割机",
-          img:
-            "http://img50.nongjx.com/2/20180628/636657846333452686281_198_170_5.jpg",
-          price: "3260",
-          company: "  曲阜市润众机械制造有限",
-          city: "曲阜市"
-        },
+        //  {
+        //   name: "   不缠秧的花生果子收割机 手扶马铃薯收获机",
+        //   img:
+        //     "http://img48.nongjx.com/2/20180628/636657836692623289517_198_170_5.jpg",
+        //   price: "2800",
+        //   company: "  曲阜市润众机械制造有限",
+        //   city: "曲阜市"
+        // },
+        // {
+        //   name: "   自走式大型花生去秧机 花生除秧自动装袋机",
+        //   img:
+        //     "http://img48.nongjx.com/2/20180715/636672620827383254579_198_170_5.jpg",
+        //   price: "2582",
+        //   company: "  曲阜金源机械设备有限公",
+        //   city: "济宁市"
+        // },
+        // {
+        //   name: "   高效省人工花生摘果机 全新多功能去秧机",
+        //   img:
+        //     "http://img48.nongjx.com/2/20180715/636672620827383254579_198_170_5.jpg",
+        //   price: "2581",
+        //   company: "  曲阜金源机械设备有限公",
+        //   city: "济宁市"
+        // },
+        // {
+        //   name: "   河北邢台花生摘果机 自动装袋脱果机图片",
+        //   img:
+        //     "http://img48.nongjx.com/2/20180715/636672620803202789496_198_170_5.jpg",
+        //   price: "2580",
+        //   company: "  曲阜金源机械设备有限公",
+        //   city: "济宁市"
+        // },
+        // {
+        //   name: "   大型花生收获机规格 链条式方便花生挖果机",
+        //   img:
+        //     "http://img47.nongjx.com/2/20180926/636735768787313154613_198_170_5.jpg",
+        //   price: "3260",
+        //   company: "  曲阜浩发机械有限公司",
+        //   city: "济宁市"
+        // },
+        // {
+        //   name: "   家用节能花生摘果机 自动装袋花生分离机",
+        //   img:
+        //     "http://img50.nongjx.com/2/20180926/636735749293114513986_198_170_5.jpg",
+        //   price: "3460",
+        //   company: "  曲阜浩发机械有限公司",
+        //   city: "济宁市"
+        // },
+        // {
+        //   name: "   高港区手扶车带动土豆收获机收山芋机器",
+        //   img:
+        //     "http://img49.nongjx.com/2/20180511/636616318740584319169_198_170_5.jpg",
+        //   price: "1900",
+        //   company: "  山东曲阜宏燊工贸有限公",
+        //   city: "曲阜市"
+        // },
+        // {
+        //   name: "   拖拉机带多功能割晒机 玉米高粱杆子收割机",
+        //   img:
+        //     "http://img50.nongjx.com/2/20180628/636657846333452686281_198_170_5.jpg",
+        //   price: "3260",
+        //   company: "  曲阜市润众机械制造有限",
+        //   city: "曲阜市"
+        // },
       ],
       swiperOption: {
       slidesPerView: 3
@@ -263,11 +266,26 @@ export default {
     }
   },
     
-    components:{
+  components:{
           swiper,
           swiperSlide
         },
+  
+
+  created(){
+    let url1 = "http://www.shangcheng.com/getList";
+    let url2 = "http://www.shangcheng.com/getUser";
+    let url3 = "http://www.shangcheng.com/Regexp";
+    let url4 = "http://www.shangcheng.com/obj";
+    // let url5 = "http://www.shangcheng.com/getVarietyItem"
+    let url5 = url.getVarietyItem
+    // console.log(url5);
+    axios.get(url5).then((res) => {
+      console.log(res);
+      this.varietyItem = res.data;
+    });
   }
+}
 </script>
 
 <style lang="scss">

@@ -3,8 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+
+
 import '@/assets/css/reset.css'
 import '@/assets/js/rem.js'
+
+import '@/mock/mock.js';
+
 
 //vant的完全引入
 // import Vant from 'vant';
