@@ -6,7 +6,7 @@
             <!-- required表示必填   clearable 表示输入完之后可以一键清空 -->
             <van-field label="用户名" required clearable placeholder="请输入用户名" v-model="loginUsername"></van-field>
             <van-field label="密码" type="password" required clearable placeholder="请输入密码" v-model="loginPassword"></van-field>
-            <van-button type="primary" size="large">登录</van-button>
+            <van-button @click="loginHandler" type="primary" size="large">登录</van-button>
 
           </van-cell-group>
         </van-tab>
@@ -27,6 +27,7 @@
 <script>
 import axios from "axios";
 import url from "@/service.config.js";
+import { mapActions } from "vuex";
 
 export default {
     data() {
@@ -38,6 +39,7 @@ export default {
       }
     },
     methods: {
+      ...mapActions(['loginAction']),
       registHandler(){
         axios({
           url: url.registUser,
@@ -62,6 +64,29 @@ export default {
 
         });
     },
+      loginHandler(){
+         axios({
+          url: url.loginUser,
+          method: "post",
+          data: {
+            userName: this.loginUsername,
+            password: this.loginPassword
+          }
+      })
+      .then(res =>{
+        console.log(res);
+        this.$toast.success("登录成功");
+        //保存登录状态
+        // this.loginAction(this.loginUsername);
+        this.loginAction(res.data.userInfo);
+        this.registUsername = this.registPassword = "";
+        this.$router.push('/');
+      }) 
+      .catch(err =>{
+        console.log(err);
+        this.$toast.fail("登录失败");
+      })
     }
   }
+}
 </script>
