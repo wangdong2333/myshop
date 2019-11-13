@@ -5,6 +5,9 @@ let URL = {
     getVarietyItem : MOCKURL + "getVarietyItem",
     registUser:SERVERURL + "user/registUser",
     loginUser: SERVERURL + 'user/loginUser',
+    getTypes: SERVERURL + 'type/getTypes',
+    getProductsByType: SERVERURL + 'product/getProductsByType',
+
 
 
 }
