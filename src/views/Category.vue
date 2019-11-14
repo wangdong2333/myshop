@@ -45,7 +45,7 @@ export default {
       start: 0,
       limit: 10,
       finished: false,//判断是否数据取完
-      isLoading: false,//下拉加载
+      isLoading: false,//上拉加载
     };
   },
   created() {
@@ -71,6 +71,7 @@ export default {
     },
     getProductList() {
       // console.log("11")
+      this.isLoading = true;
       axios({
         url: url.getProductsByType,
         method: "get",
@@ -107,7 +108,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .nav {
   background: #eee;
   li {
@@ -138,7 +139,6 @@ export default {
     width: 40%;
     padding: 0 10px;
     text-align: center;
-
     img {
       height: 2rem;
       width: 2rem;
@@ -152,4 +152,5 @@ export default {
     }
   }
 }
+
 </style>
