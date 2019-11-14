@@ -3,8 +3,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-
-
 import '@/assets/css/reset.css'
 import '@/assets/js/rem.js'
 
@@ -17,9 +15,9 @@ import '@/mock/mock.js';
 // Vue.use(Vant);
 
 //按需引入
-import {PullRefresh,List,Row, Col,toast, Button,Icon,NavBar,Tabbar, TabbarItem,Swipe, SwipeItem,Lazyload,Tab,Tabs,Field,CellGroup} from 'vant';
+import { GoodsAction,GoodsActionIcon,GoodsActionButton,PullRefresh,List,Row, Col,toast, Button,Icon,NavBar,Tabbar, TabbarItem,Swipe, SwipeItem,Lazyload,Tab,Tabs,Field,CellGroup} from 'vant';
 Vue.use(Button).use(Icon).use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem);
-Vue.use(PullRefresh).use(List).use(Row).use(Col).use(toast).use(Lazyload).use(Tab).use(Tabs).use(Field).use(CellGroup);
+Vue.use(GoodsActionButton).use(GoodsActionIcon).use(GoodsAction).use(PullRefresh).use(List).use(Row).use(Col).use(toast).use(Lazyload).use(Tab).use(Tabs).use(Field).use(CellGroup);
 
 Vue.config.productionTip = false
 

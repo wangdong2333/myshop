@@ -16,15 +16,25 @@
         </van-col>
         <van-col span="18" class="container">
           <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-            <van-list class="content" @load="onLoad" v-model="isLoading" :finished="finished" finished-text="没有更多了">
-              <div class="content-item" v-for="(item,index) in productList" :key="index">
+            <van-list
+              class="content"
+              @load="onLoad"
+              v-model="isLoading"
+              :finished="finished"
+              finished-text="没有更多了"
+            >
+              <div
+                @click="goDetail(item._id)"
+                class="content-item"
+                v-for="(item,index) in productList"
+                :key="index"
+              >
                 <img :src="item.img" alt />
                 <p class="content-item-name">{{ item.name }}</p>
                 <p class="content-item-price">￥{{ item.price }}</p>
               </div>
             </van-list>
           </van-pull-refresh>
-          
         </van-col>
       </van-row>
     </div>
@@ -44,8 +54,8 @@ export default {
       typeId: 1, // 当前选中类型的id
       start: 0,
       limit: 10,
-      finished: false,//判断是否数据取完
-      isLoading: false,//上拉加载
+      finished: false, //判断是否数据取完
+      isLoading: false //上拉加载
     };
   },
   created() {
@@ -95,15 +105,33 @@ export default {
         });
     },
     onLoad() {
-      setTimeout(() =>{
+      setTimeout(() => {
         this.getProductList();
-      },1000)
+      }, 1000);
     },
-    onRefresh(){
+    onRefresh() {
       setTimeout(() => {
         this.productList = [];
         this.getProductList();
       }, 2000);
+    },
+    goDetail(id) {
+      // console.log(id);
+      /* this.$router.push({
+        name: 'detail',
+        params: {
+          id: id
+        }
+      }); */
+
+       this.$router.push({
+        path: '/detail',
+        query: {
+          id: id
+        }
+      }); 
+
+      // this.$router.push(`/detail/${id}`);
     }
   }
 };
@@ -152,5 +180,4 @@ export default {
     }
   }
 }
-
 </style>

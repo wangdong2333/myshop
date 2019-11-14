@@ -80,7 +80,9 @@ export default {
         // this.loginAction(this.loginUsername);
         this.loginAction(res.data.userInfo);
         this.registUsername = this.registPassword = "";
-        this.$router.push('/');
+        // this.$router.push('/');
+        this.$router.go(-1);
+
       }) 
       .catch(err =>{
         console.log(err);
