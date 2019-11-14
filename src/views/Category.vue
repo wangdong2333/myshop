@@ -63,7 +63,7 @@ export default {
       url: url.getTypes
     })
       .then(res => {
-        console.log(res);
+        // console.log(res);
         this.types = res.data;
         this.selectCategory(this.typeId, this.active);
       })
@@ -92,7 +92,7 @@ export default {
         }
       })
         .then(res => {
-          console.log(res);
+          // console.log(res);
           if (res.data.length != 0) {
             this.productList = this.productList.concat(res.data);
           } else {

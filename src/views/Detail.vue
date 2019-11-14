@@ -39,7 +39,7 @@ export default {
       }
     })
       .then(res => {
-        console.log(res);
+        // console.log(res);
         this.detail = res.data;
       })
       .catch(err => {
@@ -55,13 +55,27 @@ export default {
         setTimeout(() => {
           this.$router.push("/profile");
         }, 1500);
-      }else{
-          
+      } else {
+        //插入购物车
+        axios({
+          url: url.addCart,
+          method: "post",
+          data: {
+            productId: this.detail._id,
+            userId: this.userInfo._id
+          }
+        }).then(res =>{
+            if (res.data.code == 200) {
+              this.$toast.success(res.data.message);
+            }
+        }).catch(err =>{
+            console.log(err);
+        })
       }
     }
   },
-  computed :{
-      ...mapState(['userInfo']),
+  computed: {
+    ...mapState(["userInfo"])
   }
 };
 </script>
